@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BookLab — Scrittura, traduzione e pubblicazione su Amazon KDP</title>
+    <meta name="description"
+        content="Servizi professionali: scrittura libri, traduzioni in qualsiasi lingua, cover pro e pubblicazione su Amazon KDP. Pacchetti Starter, Pro e Premium.">
+    <meta name="robots" content="index,follow">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://TUO-DOMINIO.com/">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BookLab — Scrittura, traduzione e pubblicazione su Amazon KDP">
+    <meta property="og:description"
+        content="Scrittura, traduzioni in qualsiasi lingua, cover pro e pubblicazione su Amazon KDP.">
+    <meta property="og:url" content="https://TUO-DOMINIO.com/">
+    <meta property="og:image" content="https://TUO-DOMINIO.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BookLab — Servizi editoriali per KDP">
+    <meta name="twitter:description" content="Scrittura, traduzione, cover e pubblicazione su Amazon KDP.">
+    <meta name="twitter:image" content="https://TUO-DOMINIO.com/og-image.jpg">
+
+    <!-- Perf -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            background: #0f0f16;
+        }
+
+        .gradient-bg {
+            background: radial-gradient(1200px 600px at -10% -10%, rgba(124, 58, 237, .25), transparent 40%),
+                radial-gradient(800px 600px at 110% -20%, rgba(168, 85, 247, .18), transparent 40%),
+                linear-gradient(135deg, #0f0f16 0%, #1b1530 45%, #2b2150 100%);
+        }
+
+        .countdown {
+            font-weight: 800;
+            color: #f43f5e;
+            letter-spacing: .5px;
+        }
+
+        .ring-grad {
+            box-shadow: 0 0 0 1px rgba(147, 51, 234, .25);
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(147, 51, 234, .2);
+        }
+
+        .badge {
+            font-size: .75rem;
+            background: #0ea5e9;
+            color: #0b1020;
+            padding: .2rem .5rem;
+            border-radius: .4rem;
+            font-weight: 700;
+        }
+
+        .whats-btn {
+            box-shadow: 0 10px 30px rgba(16, 185, 129, .35);
+        }
+
+        .accordion-item[open] summary svg {
+            transform: rotate(180deg);
+        }
+
+        .cover-portrait {
+            aspect-ratio: 2 / 3;
+        }
+
+        :root {
+            --scarcity-h: 0px;
+        }
+
+        body {
+            padding-bottom: var(--scarcity-h);
+        }
+
+        #siteFooter {
+            padding-bottom: calc(2rem + var(--scarcity-h));
+        }
+
+        #scarcityBar {
+            z-index: 40;
+        }
+
+        #whatsFab {
+            z-index: 50;
+        }
+
+        /* z-60 -> 50 */
+
+        .pricing-card {
+            position: relative;
+        }
+
+        .badge-offerta {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #9333ea, #7c3aed);
+            color: #fff;
+            font-weight: 700;
+            font-size: .75rem;
+            padding: .25rem .5rem;
+            border-radius: .5rem;
+            box-shadow: 0 6px 16px rgba(124, 58, 237, .35);
+        }
+
+        .pricing-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-cta {
+            margin-top: auto;
+        }
+
+        /* Lightbox */
+        .lb.hidden {
+            display: none;
+        }
+
+        .lb {
+            position: fixed;
+            inset: 0;
+            z-index: 70;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lb__bg {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .82);
+            border: 0;
+        }
+
+        .lb__frame {
+            position: relative;
+            max-width: 90vw;
+            max-height: 86vh;
+            margin: 0;
+        }
+
+        .lb__img {
+            all: unset;
+            display: block;
+            max-width: 90vw;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+            background: #0b0f14;
+        }
+
+        .lb__cap {
+            margin-top: .6rem;
+            text-align: center;
+            color: #e5e7eb;
+            font: 500 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+        }
+
+        .lb__close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .92);
+            color: #111827;
+            font-weight: 700;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+            cursor: pointer;
+        }
+
+        .lb__close:hover {
+            background: #fff;
+        }
+
+        /* Sheen pulsanti */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+
+        .btn-shine::before {
+            content: "";
+            position: absolute;
+            top: -120%;
+            left: -20%;
+            width: 40%;
+            height: 300%;
+            transform: rotate(25deg) translateX(-140%);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .35) 50%, rgba(255, 255, 255, 0) 100%);
+            transition: transform .6s ease;
+            pointer-events: none;
+        }
+
+        .btn-shine:hover::before {
+            transform: rotate(25deg) translateX(260%);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .btn-shine::before,
+            .btn-shine:hover::before {
+                transition: none;
+                transform: none !important;
+            }
+        }
+
+        @keyframes pulseSoft {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(168, 85, 247, .35);
+            }
+
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(168, 85, 247, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+            }
+        }
+
+        .badge-pulse {
+            animation: pulseSoft 2.2s ease-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .badge-pulse {
+                animation: none;
+            }
+        }
+
+        .price-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .price-cta {
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
+        .price-note {
+            margin-top: .75rem;
+            color: #9CA3AF;
+            font-size: .875rem;
+        }
+
+        /* Timeline fix: la linea resta sotto i cerchi */
+        #come .relative>.absolute.bg-purple-900\/40 {
+            z-index: 0;
+        }
+
+        /* I cerchi numerati devono stare sopra */
+        #come .grid .mx-auto {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* forza la dimensione del brand in navbar */
+        #brandLogo {
+            height: 84px !important;
+            /* prova 84–96px */
+            width: auto !important;
+            display: block;
+            max-height: none !important;
+        }
+
+        /* opzionale: un filo di padding verticale, senza ingigantire troppo la barra */
+        nav .max-w-7xl {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* su mobile riduci un po' */
+        @media (max-width: 768px) {
+            #brandLogo {
+                height: 56px !important;
+            }
+        }
+
+        nav img {
+            height: 70px !important;
+            width: auto !important;
+            max-height: none !important;
+            margin-left: 10px;
+            /* piccolo margine dal bordo */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-gray-200">
+
+    <!-- NAVBAR -->
+    <nav class="bg-gray-900/90 sticky top-0 z-50 border-b border-purple-600/40 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- BRAND -->
+            <a href="#top" class="flex items-center gap-3 shrink-0">
+                <img src="images/logo-booklab.png" alt="BookLab" class="select-none"
+                    style="height:80px;width:auto;display:block;object-fit:contain;">
+            </a>
+
+
+            <div class="hidden md:flex items-center gap-6 font-medium">
+                <a href="#servizi" class="hover:text-purple-300">Servizi</a>
+                <a href="#come" class="hover:text-purple-300">Come lavoriamo</a>
+                <a href="#portfolio" class="hover:text-purple-300">Portfolio</a>
+                <a href="#prezzi" class="hover:text-purple-300">Prezzi</a>
+                <a href="#testimonianze" class="hover:text-purple-300">Recensioni</a>
+                <a href="#faq" class="hover:text-purple-300">FAQ</a>
+                <a href="#contatti" class="hover:text-purple-300">Contatti</a>
+            </div>
+            <button id="menuBtn" aria-label="Apri menu" class="md:hidden p-2 rounded-lg border border-purple-600/40">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6h16M4 12h16M4 18h16" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden border-t border-purple-600/30">
+            <div class="px-6 py-3 grid gap-3 font-medium bg-gray-900">
+                <a href="#servizi" class="hover:text-purple-300">Servizi</a>
+                <a href="#come" class="hover:text-purple-300">Come lavoriamo</a>
+                <a href="#portfolio" class="hover:text-purple-300">Portfolio</a>
+                <a href="#prezzi" class="hover:text-purple-300">Prezzi</a>
+                <a href="#testimonianze" class="hover:text-purple-300">Recensioni</a>
+                <a href="#faq" class="hover:text-purple-300">FAQ</a>
+                <a href="#contatti" class="hover:text-purple-300">Contatti</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#0e0a1a] via-[#131026] to-[#0b0f1a]">
+        <!-- bagliori -->
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full blur-3xl bg-fuchsia-600/20">
+        </div>
+        <div aria-hidden="true"
+            class="pointer-events-none absolute top-8 right-[-6rem] h-[26rem] w-[26rem] rounded-full blur-3xl bg-purple-700/25">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 pt-24 pb-16 lg:pt-28 lg:pb-24">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                <!-- testo -->
+                <div>
+                    <!-- BADGE BLU -->
+                    <div class="inline-flex items-center gap-2 rounded-full border border-blue-500/30
+                    bg-blue-500/10 text-blue-300 px-3 py-1 mb-3">
+                        <span class="h-2 w-2 rounded-full bg-blue-400"></span>
+                        <span class="text-sm font-medium">Agenzia editoriale per Amazon KDP</span>
+                    </div>
+
+                    <!-- micro-proof sotto al badge -->
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full bg-purple-900/30 text-purple-200 px-3 py-1 mb-5 ring-1 ring-white/10">
+                        <span class="text-sm">✔ Oltre 100 libri pubblicati</span>
+                        <span class="text-white/40">•</span>
+                        <span class="text-sm">IT / EN / DE e altre lingue su richiesta</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+                        Trasforma la tua idea in un <span class="text-purple-300">libro su Amazon KDP</span>
+                    </h1>
+
+                    <p class="mt-4 text-lg text-gray-300">
+                        Scrittura, traduzione, impaginazione e pubblicazione.
+                        <span class="text-white">Un unico partner</span> per lanciare il tuo libro in grande stile.
+                    </p>
+
+                    <!-- CTA -->
+                    <div class="mt-7 flex flex-wrap items-center gap-3">
+                        <a href="#contatti" class="inline-flex items-center justify-center rounded-xl bg-purple-600 hover:bg-purple-500
+                    text-white font-semibold px-5 py-3 shadow-lg shadow-purple-900/30">
+                            Prenota una consulenza gratuita
+                        </a>
+
+                        <a href="#portfolio" class="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15
+                    text-white font-semibold px-5 py-3 ring-1 ring-white/10">
+                            Guarda i nostri lavori
+                        </a>
+                    </div>
+
+                    <p class="mt-5 text-sm text-gray-400">
+                        ⭐️ Valutazione media 4.9/5 — tempi certi, due revisioni incluse.
+                    </p>
+                </div>
+
+                <!-- Colonna immagine — HERO con foto fissa -->
+                <div class="relative">
+                    <figure class="relative mx-auto max-w-md overflow-hidden rounded-2xl ring-1 ring-white/10">
+                        <!-- wrapper con aspect-ratio per evitare CLS -->
+                        <div class="w-full" style="aspect-ratio: 4 / 3;">
+                            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80"
+                                srcset="
+    https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=640&q=80   640w,
+    https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=960&q=80   960w,
+    https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80 1400w,
+    https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1800&q=80 1800w
+  " sizes="(min-width: 1024px) 420px, 80vw" alt="Pila di libri su fondo scuro, luce calda editoriale"
+                                class="w-full h-full object-cover block" loading="eager" fetchpriority="high" />
+                        </div>
+
+                        <!-- overlay cromatico per coerenza con la palette -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-[#0b0f1a]/55 via-transparent to-fuchsia-600/10">
+                        </div>
+
+                        <!-- nota (puoi rimuoverla) -->
+                        <figcaption class="absolute left-3 bottom-3 text-xs text-white/70 bg-black/30 backdrop-blur
+                      px-2 py-1 rounded">
+
+                        </figcaption>
+                    </figure>
+
+                    <!-- alone viola -->
+                    <div aria-hidden="true" class="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 h-40 w-40
+              rounded-full blur-3xl bg-purple-700/30"></div>
+                </div>
+
+
+
+                <!-- alone viola sotto -->
+                <div aria-hidden="true"
+                    class="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 h-40 w-40 rounded-full blur-3xl bg-purple-700/30">
+                </div>
+            </div>
+
+
+            <!-- alone -->
+            <div aria-hidden="true"
+                class="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 h-40 w-40 rounded-full blur-3xl bg-purple-700/30">
+            </div>
+
+
+            <div class="h-10 bg-gradient-to-b from-transparent to-gray-950"></div>
+    </section>
+
+
+    <!-- SERVIZI -->
+    <section id="servizi" class="pt-5 pb-20 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-purple-300 mb-12">I nostri servizi</h2>
+
+            <!-- grid a 2 colonne -->
+            <div class="grid md:grid-cols-2 gap-12">
+
+                <!-- SCRITTURA -->
+                <div class="card rounded-xl p-8 hover:scale-105 transition">
+                    <h3 class="text-2xl font-semibold mb-3">✍️ Scrittura</h3>
+                    <p class="text-gray-300">
+                        Testi originali, struttura chiara e tono su misura per il tuo pubblico
+                        (narrativa e saggistica).
+                    </p>
+                </div>
+
+                <!-- TRADUZIONI -->
+                <div class="card rounded-xl p-8 hover:scale-105 transition">
+                    <h3 class="text-2xl font-semibold mb-3">🌍 Traduzioni</h3>
+                    <p class="text-gray-300">
+                        Adattamento <b>in qualsiasi lingua</b> con localizzazione titoli, keyword
+                        e descrizioni per mercati internazionali.
+                    </p>
+                </div>
+
+                <!-- COPERTINE -->
+                <div class="card rounded-xl p-8 hover:scale-105 transition">
+                    <h3 class="text-2xl font-semibold mb-3">🎨 Copertine</h3>
+                    <p class="text-gray-300">
+                        Cover accattivanti (eBook + cartaceo) ottimizzate per Amazon;
+                        tipografia e composizione professionali.
+                    </p>
+                </div>
+
+                <!-- PUBBLICAZIONE + VIDEO TUTORIAL -->
+                <div class="card rounded-xl p-8 hover:scale-105 transition">
+                    <h3 class="text-2xl font-semibold mb-3">🎬 Pubblicazione + Video Tutorial</h3>
+                    <p class="text-gray-300">
+                        Upload completo su <b>Amazon KDP</b> (categorie, metadati, prezzi)
+                        con <b>video guida personalizzato</b> che ti mostra passo passo
+                        come gestire il tuo libro e aggiornarlo in autonomia.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- COME LAVORIAMO (timeline + 6 step) -->
+    <section id="come" class="py-12 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-purple-300 mb-6">Come lavoriamo</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-300 mb-16">
+                Un percorso chiaro in <strong>6 step</strong>: dall’idea alla pubblicazione su Amazon KDP, con qualità
+                editoriale e tempi rapidi.
+            </p>
+            <div class="relative max-w-6xl mx-auto mb-16">
+                <div class="absolute left-0 right-0 top-6 h-1 bg-purple-900/40 rounded-full"></div>
+                <div id="timelineProgress"
+                    class="absolute left-0 top-6 h-1 bg-purple-500 rounded-full transition-all duration-1000"
+                    style="width:0%">
+                </div>
+                <div class="grid grid-cols-6 gap-3 text-center">
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            1</div>
+                        <div class="text-xs mt-2 text-gray-300">Brief</div>
+                    </div>
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            2</div>
+                        <div class="text-xs mt-2 text-gray-300">Scrittura/Trad</div>
+                    </div>
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            3</div>
+                        <div class="text-xs mt-2 text-gray-300">Editing</div>
+                    </div>
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            4</div>
+                        <div class="text-xs mt-2 text-gray-300">Copertina</div>
+                    </div>
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            5</div>
+                        <div class="text-xs mt-2 text-gray-300">Impaginazione</div>
+                    </div>
+                    <div>
+                        <div
+                            class="mx-auto h-12 w-12 rounded-full grid place-items-center bg-gray-800 border border-purple-600/50 text-purple-300 font-bold">
+                            6</div>
+                        <div class="text-xs mt-2 text-gray-300">Pubblicazione</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">1</span>
+                        <h3 class="text-2xl font-semibold">Brief iniziale 📋</h3>
+                    </div>
+                    <p class="text-gray-300">Obiettivi, target e benchmark. Definiamo tono, stile e struttura.</p>
+                </div>
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">2</span>
+                        <h3 class="text-2xl font-semibold">Scrittura / Traduzione ✍️🌍</h3>
+                    </div>
+                    <p class="text-gray-300">Contenuti originali o adattamento con keyword locali. Ritmo, chiarezza e
+                        voce
+                        coerente.</p>
+                </div>
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">3</span>
+                        <h3 class="text-2xl font-semibold">Editing & Revisione 🧐</h3>
+                    </div>
+                    <p class="text-gray-300">Correzione bozze, uniformità stilistica, coerenza terminologica. 2
+                        revisioni incluse.
+                    </p>
+                </div>
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">4</span>
+                        <h3 class="text-2xl font-semibold">Design Copertina 🎨</h3>
+                    </div>
+                    <p class="text-gray-300">Concept, tipografia e imaging pro. Versioni eBook + cartaceo, preview
+                        realistiche.
+                    </p>
+                </div>
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">5</span>
+                        <h3 class="text-2xl font-semibold">Impaginazione 📖</h3>
+                    </div>
+                    <p class="text-gray-300">EPUB + PDF pronti per KDP. Margini, bleed, sommari cliccabili, font
+                        leggibili.</p>
+                </div>
+                <div class="card p-8 rounded-xl hover:scale-105 transition shadow-lg">
+                    <div class="flex items-center mb-4"><span class="text-3xl text-purple-400 font-bold mr-4">6</span>
+                        <h3 class="text-2xl font-semibold">Pubblicazione 🚀</h3>
+                    </div>
+                    <p class="text-gray-300">Upload KDP, categorie & keyword, pricing e contenuti A+. Supporto
+                        post-lancio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-10 bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-purple-300 mb-6">Portfolio</h2>
+
+            <!-- Grid -->
+            <div id="pf-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                <!-- CARD ESEMPIO (copia/duplica e cambia data-cat + src + titolo) -->
+                <article class="pf-card" data-cat="fiction">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <!-- contenitore 6x9 -->
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/fiction.png" data-full="images/fiction.png" alt="Fiction – romanzo"
+                                class="w-full h-full object-cover" loading="lazy" />
+
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Fiction (romanzi &amp; gialli)</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-cat="business">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/self-help.png" data-full="images/self-help.png" alt="Fiction – romanzo"
+                                class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Business &amp; Self-help</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-cat="manuali">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/manuali.png" data-full="images/manuali.png" alt="Fiction – romanzo"
+                                class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Manuali pratici</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-cat="ricettari">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/ricettari.png" data-full="images/ricettari.png" alt="Fiction – romanzo"
+                                class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Ricettari</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-cat="salute">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/salute-benessere.png" data-full="images/salute-benessere.png"
+                                alt="Fiction – romanzo" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Salute &amp; benessere</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="pf-card" data-cat="viaggi">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/viaggi-atlas.png" data-full="images/viaggi-atlas.png"
+                                alt="Fiction – romanzo" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Viaggi &amp; mappe</h3>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="pf-card" data-cat="thriller">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/thriller.jpg" data-full="images/thriller.jpg" alt="Thriller"
+                                class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Thriller</h3>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="pf-card" data-cat="ricettari-americani">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/ricettari-americani.jpg" data-full="images/ricettari-americani.jgp"
+                                alt="Ricettari-amricani" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Ricettari</h3>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="pf-card" data-cat="fitness-seniors">
+                    <div class="relative overflow-hidden rounded-xl bg-gray-900 ring-1 ring-gray-800">
+                        <div class="w-full" style="aspect-ratio: 2 / 3;">
+                            <img src="images/fitness-seniors.jpg" data-full="images/fitness-seniors.jpg"
+                                alt="Fitness-seniors" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-semibold">Health and Fitness</h3>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="prezzi" class="relative bg-gray-950 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Scegli il pacchetto</h2>
+                <p class="mt-3 text-gray-300">Offerta limitata su tutti i piani. Prezzi IVA inclusa.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+
+                <!-- STARTER -->
+                <article class="group relative overflow-hidden rounded-2xl ring-1 ring-gray-800 bg-gray-900/60
+  transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]
+  hover:ring-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/15
+  flex flex-col h-full px-8">
+
+
+                    <!-- ribbon -->
+                    <div
+                        class="absolute left-4 top-4 inline-flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 ring-1 ring-amber-400/30 px-2 py-1 rounded-full">
+                        <span class="h-2 w-2 rounded-full bg-amber-400"></span> Offerta limitata
+                    </div>
+                    <header class="mb-4">
+                        <h3 class="text-2xl font-bold text-white mt-10">Starter</h3>
+                        <p class="text-gray-400">Per iniziare (libro digitale completo).</p>
+                    </header>
+
+                    <div class="mb-5">
+                        <div class="text-gray-400 line-through text-lg">€189</div>
+                        <div class="flex items-baseline gap-2">
+                            <div class="text-4xl font-extrabold text-white">€149</div>
+                            <span class="text-emerald-400 text-sm">Risparmi €40</span>
+                        </div>
+                    </div>
+
+
+                    <ul class="space-y-3 text-gray-200 text-sm mb-6">
+                        <li class="flex gap-2"><span>✔</span><span><strong>Libro ≥ 18k parole</strong> (ebook)</span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Impaginazione</strong> e formattazione
+                                professionale</span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Indice cliccabile</strong> per l’ebook</span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Descrizione SEO essenziale</strong> per
+                                Amazon</span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Copertina base</strong> (coerente con il
+                                genere)</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <a href="#contatti" class="btn-shine w-full inline-flex items-center justify-center
+          rounded-xl bg-purple-600 hover:bg-purple-500
+          text-white font-semibold py-4 transition-colors">
+                            Scegli Starter
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PRO (Più scelto) -->
+                <article class="group relative overflow-hidden rounded-2xl ring-1 ring-gray-800 bg-gray-900/60
+  transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]
+  hover:ring-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/15
+  flex flex-col h-full px-8">
+
+                    <!-- badge più scelto -->
+                    <div
+                        class="absolute right-4 top-4 inline-flex items-center gap-2 text-xs text-white bg-purple-600 px-2 py-1 rounded-full shadow">
+                        Più scelto
+                    </div>
+                    <!-- ribbon -->
+                    <div
+                        class="absolute left-4 top-4 inline-flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 ring-1 ring-amber-400/30 px-2 py-1 rounded-full">
+                        <span class="h-2 w-2 rounded-full bg-amber-400"></span> Offerta limitata
+                    </div>
+
+                    <header class="mb-4">
+                        <h3 class="text-2xl font-bold text-white mt-10">Pro</h3>
+                        <p class="text-gray-300">Libro completo + setup KDP.</p>
+                    </header>
+
+                    <div class="mb-5">
+                        <div class="text-gray-400 line-through text-lg">€399</div>
+                        <div class="flex items-baseline gap-2">
+                            <div class="text-4xl font-extrabold text-white">€329</div>
+                            <span class="text-emerald-400 text-sm">Risparmi €70</span>
+                        </div>
+                    </div>
+
+
+                    <ul class="space-y-3 text-gray-100 text-sm mb-6">
+                        <li class="flex gap-2"><span>✔</span><span><strong>Scrittura/Traduzione 18k–22k
+                                    parole</strong></span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Impaginazione ebook +
+                                    cartaceo</strong></span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Copertina premium</strong> (studio del
+                                target)</span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Categorie &amp; descrizione
+                                    ottimizzata</strong></span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>2 revisioni incluse</strong> + assistenza al
+                                lancio</span></li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <a href="#contatti" class="btn-shine w-full inline-flex items-center justify-center
+          rounded-xl bg-purple-600 hover:bg-purple-500
+          text-white font-semibold py-4 transition-colors">
+                            Scegli Pro
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PREMIUM -->
+                <article class="group relative overflow-hidden rounded-2xl ring-1 ring-gray-800 bg-gray-900/60
+  transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]
+  hover:ring-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/15
+  flex flex-col h-full px-8">
+
+                    <!-- badge posti limitati -->
+                    <div
+                        class="absolute right-4 top-4 inline-flex items-center gap-2 text-xs text-white bg-red-600 px-2 py-1 rounded-full shadow">
+                        Solo 5/mese
+                    </div>
+                    <!-- ribbon -->
+                    <div
+                        class="absolute left-4 top-4 inline-flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 ring-1 ring-amber-400/30 px-2 py-1 rounded-full">
+                        <span class="h-2 w-2 rounded-full bg-amber-400"></span> Offerta limitata
+                    </div>
+
+                    <header class="mb-4">
+                        <h3 class="text-2xl font-bold text-white mt-10">Premium</h3>
+                        <p class="text-gray-400">Percorso completo + cover pro.</p>
+                    </header>
+
+                    <div class="mb-5">
+                        <div class="text-gray-400 line-through text-lg">€659</div>
+                        <div class="flex items-baseline gap-2">
+                            <div class="text-4xl font-extrabold text-white">€579</div>
+                            <span class="text-emerald-400 text-sm">Risparmi €80</span>
+                        </div>
+                    </div>
+
+
+                    <ul class="space-y-3 text-gray-200 text-sm mb-6">
+                        <li class="flex gap-2"><span>✔</span><span><strong>Scrittura/Traduzione 22k–35k
+                                    parole</strong></span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Traduzione in tutte le lingue</strong>
+                                (localizzazione
+                                inclusa)</span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Copertina professionale</strong> + materiali
+                                A+</span>
+                        </li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Impaginazione ebook + cartaceo</strong> (PDF
+                                stampa)</span></li>
+                        <li class="flex gap-2"><span>✔</span><span><strong>Setup KDP completo</strong> + supporto al
+                                lancio</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <a href="#contatti" class="btn-shine w-full inline-flex items-center justify-center
+          rounded-xl bg-purple-600 hover:bg-purple-500
+          text-white font-semibold py-4 transition-colors">
+                            Scegli Premium
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="mt-6 text-center text-sm text-gray-400">
+                * I tempi variano in base al genere e alla lunghezza. Possibili extra: A+ avanzata, pagina autore,
+                varianti
+                cover.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- Add-on opzionali -->
+    <div class="mt-12">
+        <h3 class="text-xl font-semibold text-purple-300 mb-4 text-center">Extra servizi</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+            <div class="bg-gray-800 rounded-xl p-4 text-center">🖼️ Cover variante alternativa — <span
+                    class="text-gray-300">€59</span></div>
+            <div class="bg-gray-800 rounded-xl p-4 text-center">📝 Extra revisione (oltre le 2 incluse) — <span
+                    class="text-gray-300">€39</span></div>
+            <div class="bg-gray-800 rounded-xl p-4 text-center">🚀 Setup A+ / pagina autore — <span
+                    class="text-gray-300">€69</span></div>
+        </div>
+    </div>
+
+    <!-- Garanzie -->
+    <div class="mt-10 grid md:grid-cols-3 gap-4 text-sm text-gray-300">
+        <div class="bg-gray-800 rounded-xl p-4 text-center">🔒 NDA su richiesta</div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center">♻️ 2 revisioni incluse</div>
+        <div class="bg-gray-800 rounded-xl p-4 text-center">⏱️ Tempi medi: 7–14 giorni (10–15k parole)</div>
+    </div>
+    <p class="text-center text-xs text-gray-500 mt-4">Prezzi IVA inclusa. Richiedi un preventivo preciso dal form.</p>
+    </div>
+    </section>
+
+
+    <!-- TESTIMONIANZE (allineate) -->
+    <section id="testimonianze" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-purple-300 mb-12">Cosa dicono i nostri clienti</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                <!-- CARD -->
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “BookLab ha trasformato il mio schema in un libro vero, con una copertina che ha raddoppiato i
+                        click. Hanno
+                        curato anche le categorie: in due settimane ho iniziato a vendere.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Marco R., business author</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Traduzione impeccabile in tedesco e inglese, con adattamenti culturali intelligenti. La voce
+                        dell’autore
+                        resta intatta e la lettura scorre benissimo.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Laura B., saggistica</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Titolo e sottotitolo ripensati: il before/after della copertina è stato clamoroso. CTR passato
+                        dal 2,1% al
+                        4,8%.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Davide P., manuale pratico</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Organizzazione svizzera: timeline rispettata, feedback puntuali, due revisioni incluse davvero
+                        utili. Zero
+                        stress per la pubblicazione su KDP.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Giulia C., narrativa</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Non sapevo nulla di categorie, BISAC o A+. Hanno fatto tutto loro e mi hanno spiegato come
+                        aggiornare i
+                        contenuti. Stra-consigliati.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Alberto S.</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Impaginazione pulita, leggibilità top anche su Kindle. Il PDF per la stampa è venuto perfetto.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Serena V.</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Il supporto al lancio è stato decisivo: descrizione, categorie e pricing ottimizzati. Ho visto
+                        fin da
+                        subito movimento organico.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Elisa T.</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Due proposte di copertina molto diverse, entrambe coerenti al genere. Abbiamo testato e scelto
+                        quella con
+                        conversione migliore.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Luca F.</figcaption>
+                    </div>
+                </figure>
+
+                <figure class="card p-6 rounded-xl flex flex-col h-full">
+                    <blockquote class="text-lg leading-relaxed flex-grow">
+                        “Gestione impeccabile anche in multilingua. Le vendite su marketplace esteri hanno superato
+                        quelle italiane
+                        dopo il primo mese.”
+                    </blockquote>
+                    <div class="mt-4">
+                        <p class="text-yellow-400">★★★★★</p>
+                        <figcaption class="mt-1 text-sm text-gray-400">— Giorgio K.</figcaption>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ (6) -->
+    <section id="faq" class="py-20 bg-gray-950">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-purple-300 mb-12">FAQ</h2>
+
+            <details class="accordion-item card rounded-xl p-5 mb-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-semibold">Quanto tempo serve per un progetto medio?</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" class="transition">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <p class="mt-3 text-gray-300">Per 18k–22k parole consideriamo 10–14 giorni complessivi tra produzione,
+                    editing,
+                    impaginazione e cover.</p>
+            </details>
+
+            <details class="accordion-item card rounded-xl p-5 mb-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-semibold">Posso restare anonimo come autore?</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" class="transition">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <p class="mt-3 text-gray-300">Sì. Lavoriamo in ghostwriting/white-label: il tuo nome appare come autore,
+                    il
+                    nostro no. NDA disponibile.</p>
+            </details>
+
+            <details class="accordion-item card rounded-xl p-5 mb-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-semibold">Gestite anche categorie, keyword e A+?</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" class="transition">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <p class="mt-3 text-gray-300">Certo. Curiano noi categorie BISAC/BIC, 7 keyword backend, pricing e
+                    contenuti A+
+                    con grafica.</p>
+            </details>
+
+            <details class="accordion-item card rounded-xl p-5 mb-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-semibold">La traduzione è davvero per qualsiasi lingua?</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" class="transition">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <p class="mt-3 text-gray-300">Sì: lavoriamo con traduttori madrelingua per le principali lingue del
+                    mondo e reti
+                    partner per lingue meno diffuse.</p>
+            </details>
+
+            <details class="accordion-item card rounded-xl p-5 mb-4">
+                <summary class="flex items-center justify-between cursor-pointer">
+                    <span class="font-semibold">Come funziona la revisione?</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" class="transition">
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <p class="mt-3 text-gray-300">Sono incluse 2 revisioni. Extra revisioni sono disponibili come add-on a
+                    €39.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- CONTATTI (EmailJS) -->
+    <section id="contatti" class="py-20 bg-gray-950">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-center text-4xl font-bold text-purple-200 mb-10">Contattaci</h2>
+
+            <form id="contactForm" class="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
+
+                <!-- Griglia campi -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <!-- Nome -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Nome</label>
+                        <input id="name" name="name" type="text" required placeholder="Il tuo nome" class="w-full rounded-xl bg-gray-900 border border-gray-800 text-gray-100 placeholder-gray-500
+                        px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="nome@email.com" class="w-full rounded-xl bg-gray-900 border border-gray-800 text-gray-100 placeholder-gray-500
+                        px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    </div>
+
+                    <!-- Pacchetto -->
+                    <div>
+                        <label for="pacchetto" class="block text-sm font-medium text-gray-300 mb-2">Pacchetto</label>
+                        <select id="pacchetto" name="pacchetto" required class="w-full rounded-xl bg-gray-900 border border-gray-800 text-gray-100
+                         px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                            <option value="Starter">Starter</option>
+                            <option value="Pro">Pro</option>
+                            <option value="Premium">Premium</option>
+                        </select>
+                    </div>
+
+                    <!-- Messaggio -->
+                    <div class="sm:col-span-2">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Messaggio</label>
+                        <textarea id="message" name="message" rows="4" required
+                            placeholder="Raccontaci il progetto, tempi, genere, lingue…"
+                            class="w-full rounded-xl bg-gray-900 border border-gray-800 text-gray-100 placeholder-gray-500
+                           px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div class="flex items-start gap-3 mt-6">
+                    <input id="privacy" name="privacy" type="checkbox" value="accepted" required
+                        class="mt-1.5 h-5 w-5 rounded border-gray-700 bg-gray-900 text-purple-500 focus:ring-purple-500">
+                    <label for="privacy" class="text-sm text-gray-300 leading-6">
+                        Ho letto e accetto la <a href="privacy.html" class="underline hover:text-purple-300">Privacy
+                            Policy</a>.
+                    </label>
+                </div>
+
+                <!-- Hidden (UTM & contesto) -->
+                <input type="hidden" name="utm_source">
+                <input type="hidden" name="utm_medium">
+                <input type="hidden" name="utm_campaign">
+                <input type="hidden" name="referrer">
+                <input type="hidden" name="page_path">
+
+                <!-- Messaggi stato -->
+                <p id="formOk" class="hidden mt-4 text-sm text-green-400">Invio in corso…</p>
+                <p id="formErr" class="hidden mt-4 text-sm text-red-400">Invio non riuscito. Riprova.</p>
+
+                <!-- CTA -->
+                <div class="mt-8">
+                    <button type="submit" class="w-full md:w-auto px-8 py-3 rounded-xl bg-purple-600 hover:bg-purple-500
+                       text-white font-semibold shadow-lg transition">
+                        Invia richiesta
+                    </button>
+                </div>
+
+                <p class="text-xs text-gray-400 mt-4">
+                    Riceverai una conferma automatica via email. Rispondiamo entro 24 ore.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a id="whatsFab" href="https://wa.me/393466775323?text=Ciao%20BookLab%2C%20vorrei%20informazioni%20sui%20pacchetti."
+        target="_blank" rel="noopener" aria-label="Chat su WhatsApp" class="fixed right-5 bottom-[calc(20px+var(--scarcity-h))] z-50
+         w-14 h-14 rounded-full bg-emerald-500 text-white
+         flex items-center justify-center
+         shadow-lg shadow-emerald-600/30 ring-1 ring-white/10
+         hover:scale-[1.03] transition">
+        <svg viewBox="0 0 32 32" class="w-7 h-7" aria-hidden="true" fill="currentColor">
+            <path
+                d="M19.11 17.69c-.28-.14-1.61-.79-1.86-.88-.25-.09-.43-.14-.61.14-.18.28-.7.88-.86 1.06-.16.18-.32.2-.6.07a6.56 6.56 0 0 1-1.94-1.2 7.23 7.23 0 0 1-1.34-1.65c-.18-.32 0-.49.14-.63.14-.14.32-.36.47-.54.16-.18.2-.32.3-.54.09-.23.05-.41-.02-.57-.07-.14-.61-1.46-.83-2-.22-.53-.44-.45-.61-.45h-.52c-.18 0-.46.07-.7.35s-.92.9-.92 2.2c0 1.3.95 2.55 1.09 2.73.14.18 1.87 2.86 4.54 4 .64.28 1.14.45 1.53.57.64.2 1.22.17 1.68.1.51-.08 1.61-.66 1.84-1.29.23-.63.23-1.17.16-1.29-.07-.12-.26-.2-.54-.34zM16 3.2A12.79 12.79 0 0 0 3.2 16c0 2.25.6 4.33 1.64 6.14L3 29l6.99-1.83A12.71 12.71 0 0 0 16 28.8 12.79 12.79 0 0 0 28.8 16 12.79 12.79 0 0 0 16 3.2zm7.53 18.32c-.32.91-1.86 1.74-2.56 1.86-.66.12-1.52.17-2.45-.15-2.83-.98-4.64-3.3-4.78-3.45-.14-.15-1.14-1.51-1.14-2.89 0-1.38.72-2.06.98-2.35.26-.29.57-.36.76-.36.18 0 .37 0 .53.01.17.01.4-.07.63.48.24.57.83 1.97.9 2.12.07.15.12.33.02.53-.1.2-.15.33-.3.51-.16.18-.33.41-.48.55-.15.14-.31.29-.14.57.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.28 2.3 1.42.29.14.46.12.64-.07.18-.19.74-.86.94-1.16.2-.29.4-.24.66-.14.26.1 1.66.78 1.95.92.29.14.49.21.56.33.08.12.08.95-.24 1.86z" />
+        </svg>
+    </a>
+
+    <!-- FOOTER / NOTE LEGALI -->
+    <footer class="bg-gray-950 text-gray-400 text-sm py-10 mt-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+            <!-- Brand -->
+            <div>
+                <h3 class="text-purple-300 font-semibold text-lg">BookLab</h3>
+                <p class="mt-2">Servizi professionali di scrittura, traduzione e pubblicazione su Amazon KDP.</p>
+
+            </div>
+
+            <!-- Link legali -->
+            <div>
+                <h3 class="text-purple-300 font-semibold text-lg">Legale</h3>
+                <ul class="mt-2 space-y-1">
+                    <li><a href="/privacy.html" class="hover:text-purple-400">Privacy Policy</a></li>
+                    <li><a href="/termini.html" class="hover:text-purple-400">Termini & Condizioni</a></li>
+                    <li><a href="/cookie.html" class="hover:text-purple-400">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+
+            <!-- SCRIPTS -->
+            <script>
+                // copyright
+                document.getElementById("year").textContent = new Date().getFullYear();
+
+                // mobile menu
+                const menuBtn = document.getElementById('menuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+                // countdown sempre attivo (rolling 3 ore)
+                function startCountdown(duration) {
+                    let timer = duration, h, m, s;
+                    setInterval(function () {
+                        h = String(parseInt(timer / 3600, 10)).padStart(2, '0');
+                        m = String(parseInt((timer % 3600) / 60, 10)).padStart(2, '0');
+                        s = String(parseInt(timer % 60, 10)).padStart(2, '0');
+                        document.getElementById("timer").textContent = `${h}:${m}:${s}`;
+                        if (--timer < 0) { timer = duration; } // reset per tenerlo sempre attivo
+                    }, 1000);
+                }
+                startCountdown(10800); // 3 ore
+
+                // timeline progress (animazione all'entrata)
+                const progress = document.getElementById('timelineProgress');
+                const onScroll = () => {
+                    const section = document.getElementById('come');
+                    const rect = section.getBoundingClientRect();
+                    const vh = window.innerHeight || document.documentElement.clientHeight;
+                    if (rect.top < vh * 0.6) {
+                        progress.style.width = '100%';
+                        window.removeEventListener('scroll', onScroll);
+                    }
+                };
+                window.addEventListener('scroll', onScroll);
+                onScroll();
+
+                // barra "posti rimasti" animazione fake (oscilla tra 55% e 80%)
+                const bar = document.getElementById('bar');
+                let dir = 1;
+                setInterval(() => {
+                    let width = parseFloat(bar.style.width);
+                    if (width > 80) dir = -1;
+                    if (width < 55) dir = 1;
+                    bar.style.width = (width + dir * 1.2) + '%';
+                }, 1200);
+            </script>
+
+            <div id="cookieBanner"
+                class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto max-w-xl bg-gray-800 text-gray-200 rounded-lg p-4 shadow-xl border border-gray-700 hidden">
+                <p class="text-sm">
+                    Usiamo cookie tecnici necessari al funzionamento del sito. Nessun tracciamento di profilazione.
+                    Leggi la <a href="/cookie.html" class="text-purple-300 underline">Cookie Policy</a>.
+                </p>
+                <div class="mt-3 text-right">
+                    <button id="cookieOk"
+                        class="px-4 py-2 bg-purple-600 rounded-md font-semibold hover:bg-purple-700">OK</button>
+                </div>
+            </div>
+            <script>
+                (function () {
+                    if (!localStorage.getItem('cookie-ok')) {
+                        document.getElementById('cookieBanner').classList.remove('hidden');
+                        document.getElementById('cookieOk').onclick = function () {
+                            localStorage.setItem('cookie-ok', '1');
+                            document.getElementById('cookieBanner').classList.add('hidden');
+                        };
+                    }
+                })();
+            </script>
+
+            <script src="script.js"></script>
+
+            <script>
+                (function () {
+                    const bar = document.getElementById('scarcityBar');
+                    function updateScarcityHeight() {
+                        const h = bar ? bar.offsetHeight : 0;
+                        document.documentElement.style.setProperty('--scarcity-h', h + 'px');
+                    }
+                    window.addEventListener('load', updateScarcityHeight);
+                    window.addEventListener('resize', updateScarcityHeight);
+                    // se in futuro mostri/nascondi la barra via JS, richiama updateScarcityHeight()
+                })();
+            </script>
+
+            <script>
+                (function () {
+                    const tabs = document.querySelectorAll('#pf-tabs .pf-tab');
+                    const cards = document.querySelectorAll('#pf-grid .pf-card');
+                    tabs.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            tabs.forEach(b => b.classList.remove('active', 'bg-purple-700', 'text-white'));
+                            btn.classList.add('active', 'bg-purple-700', 'text-white');
+                            const cat = btn.dataset.cat;
+                            cards.forEach(c => {
+                                const ok = (cat === 'all') || c.dataset.cat === cat;
+                                c.style.display = ok ? '' : 'none';
+                            });
+                        });
+                    });
+                })();
+            </script>
+
+            <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"BookLab",
+  "url":"https://TUO-DOMINIO.com/",
+  "logo":"https://TUO-DOMINIO.com/logo.png",
+  "sameAs":[]
+}
+</script>
+
+            <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Servizi editoriali Amazon KDP",
+  "provider": { "@type":"Organization", "name":"BookLab" },
+  "areaServed":"Worldwide",
+  "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"Pacchetti",
+    "itemListElement":[
+      {"@type":"Offer","name":"Starter","priceCurrency":"EUR","price":"129"},
+      {"@type":"Offer","name":"Pro","priceCurrency":"EUR","price":"279"},
+      {"@type":"Offer","name":"Premium","priceCurrency":"EUR","price":"499"}
+    ]
+  }
+}
+</script>
+
+            <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"In quali lingue lavorate?","acceptedAnswer":{"@type":"Answer","text":"Qualsiasi lingua: traduciamo e localizziamo con madrelingua dedicati."}},
+    {"@type":"Question","name":"Le cover sono incluse?","acceptedAnswer":{"@type":"Answer","text":"Sì: ogni pacchetto include una copertina; opzioni premium disponibili come extra."}},
+    {"@type":"Question","name":"Impaginate anche il cartaceo?","acceptedAnswer":{"@type":"Answer","text":"Sì, Pro e Premium includono impaginazione eBook + cartaceo (KDP)."}},
+    {"@type":"Question","name":"Quante parole sono incluse?","acceptedAnswer":{"@type":"Answer","text":"Pro: 18k–22k parole. Premium: 22k–35k parole. Starter per progetti brevi."}},
+    {"@type":"Question","name":"Fate pubblicazione su KDP?","acceptedAnswer":{"@type":"Answer","text":"Sì, curiamo setup KDP, categorie e descrizione ottimizzata."}},
+    {"@type":"Question","name":"Come richiedo un preventivo?","acceptedAnswer":{"@type":"Answer","text":"Compila il modulo Contattaci o scrivici su WhatsApp: rispondiamo entro 24h."}}
+  ]
+}
+</script>
+
+            <!-- LIGHTBOX (bulletproof) -->
+            <div id="lb" class="lb hidden">
+                <button id="lb-bg" class="lb__bg" aria-label="Chiudi lightbox"></button>
+
+                <figure class="lb__frame" role="dialog" aria-modal="true">
+                    <img id="lb-img" class="lb__img" src="" alt="">
+                    <figcaption id="lb-cap" class="lb__cap"></figcaption>
+                    <button id="lb-close" class="lb__close" aria-label="Chiudi">✕</button>
+                </figure>
+            </div>
+
+            <script>
+                (function () {
+                    // 1) Selettori
+                    const grid = document.getElementById('pf-grid');      // griglia del portfolio
+                    const lb = document.getElementById('lb');
+                    const lbImg = document.getElementById('lb-img');
+                    const lbCap = document.getElementById('lb-cap');
+                    const lbBg = document.getElementById('lb-bg');
+                    const lbX = document.getElementById('lb-close');
+
+                    if (!grid || !lb || !lbImg) { return; } // esci se non c'è il portfolio
+
+                    // 2) Apri/chiudi
+                    function openLB(src, cap, alt) {
+                        lbImg.src = src;
+                        lbImg.alt = alt || '';
+                        lbCap.textContent = cap || '';
+                        lb.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    function closeLB() {
+                        lb.classList.add('hidden');
+                        lbImg.src = '';
+                        document.body.style.overflow = '';
+                    }
+
+                    // 3) Click sulle immagini del portfolio
+                    grid.addEventListener('click', (e) => {
+                        const img = e.target.closest('img');
+                        if (!img) return;
+                        // Usa SEMPRE data-full se presente
+                        const full = img.getAttribute('data-full') || img.currentSrc || img.src;
+                        const alt = img.alt || '';
+                        const cap = img.closest('.relative, article, figure')?.querySelector('h3')?.textContent?.trim() || alt;
+
+                        // Debug se vuoi capire cosa sta passando
+                        // console.log({full, alt, cap});
+
+                        openLB(full, cap, alt);
+                    });
+
+                    // 4) Chiusura
+                    lbBg.addEventListener('click', closeLB);
+                    lbX.addEventListener('click', closeLB);
+                    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
+                })();
+            </script>
+
+            <script>
+                (function () {
+                    const grid = document.getElementById('pf-grid');               // griglia portfolio
+                    const lb = document.getElementById('lb');
+                    const lbImg = document.getElementById('lb-img');
+                    const lbCap = document.getElementById('lb-cap');
+                    const lbBg = document.getElementById('lb-bg');
+                    const lbClose = document.getElementById('lb-close');
+
+                    function openLB(src, cap, alt) {
+                        lbImg.src = src;
+                        lbImg.alt = alt || '';
+                        lbCap.textContent = cap || '';
+                        lb.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    function closeLB() {
+                        lb.classList.add('hidden');
+                        lbImg.src = '';
+                        document.body.style.overflow = '';
+                    }
+
+                    // click sulle card (img o container)
+                    grid.addEventListener('click', (e) => {
+                        const img = e.target.closest('img');
+                        if (!img) return;
+                        const full = img.getAttribute('data-full') || img.src;
+                        const alt = img.alt || '';
+                        const cap = img.closest('.relative')?.querySelector('h3')?.textContent?.trim() || alt;
+                        openLB(full, cap, alt);
+
+                    });
+
+                    // chiusura
+                    lbBg.addEventListener('click', closeLB);
+                    lbClose.addEventListener('click', closeLB);
+                    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
+                })();
+            </script>
+
+            <script>
+                document.querySelectorAll('a[href^="#"]').forEach(a => {
+                    a.addEventListener('click', e => {
+                        const id = a.getAttribute('href');
+                        const el = document.querySelector(id);
+                        if (!el) return;
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+            </script>
+
+            <!-- EmailJS -->
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+            <script>
+                // === CONFIG PERSONALI (compila questi 3 campi) ===========================
+                const EMAILJS_PUBLIC_KEY = 'mBdV8-HCoH4e65a5C';       // es. 'mBdV8-HCoH4e65a5C'
+                const EMAILJS_SERVICE_ID = 'service_h8hqm84';       // es. 'service_h8hqm84'
+                const EMAILJS_TEMPLATE_ADMIN = 'template_oyw8xl3';  // template che manda a te
+                const EMAILJS_TEMPLATE_USER = 'template_hz4gohb'; // template per il cliente (To = {{email}})
+                // ========================================================================
+
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+
+                const form = document.getElementById('contactForm');
+                const okEl = document.getElementById('formOk');
+                const errEl = document.getElementById('formErr');
+                const submitBtn = form.querySelector('[type="submit"]');
+
+                // Precompila hidden UTM / referrer / path
+                (function hydrateHidden() {
+                    const qs = new URLSearchParams(window.location.search);
+                    const set = (name, val) => {
+                        const el = form.querySelector(`[name="${name}"]`);
+                        if (el) el.value = val || '';
+                    };
+                    set('utm_source', qs.get('utm_source'));
+                    set('utm_medium', qs.get('utm_medium'));
+                    set('utm_campaign', qs.get('utm_campaign'));
+                    set('referrer', document.referrer);
+                    set('page_path', window.location.pathname);
+                })();
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    // UI stato
+                    okEl.textContent = 'Invio in corso…';
+                    okEl.classList.remove('hidden');
+                    errEl.classList.add('hidden');
+                    submitBtn.disabled = true;
+
+                    try {
+                        // Prepara i dati come oggetto (i placeholder del template devono combaciare)
+                        const fd = new FormData(form);
+                        const data = Object.fromEntries(fd.entries()); // {name, email, pacchetto, message, privacy, utm_* ...}
+
+                        // Invia a te + (opzionale) al cliente
+                        const toAdmin = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ADMIN, data);
+                        const toUser = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, data); // disattivalo se non vuoi la copia al cliente
+
+                        await Promise.all([toAdmin, toUser]);
+
+                        // Redirect alla pagina di ringraziamento (o alla home)
+                        window.location.href = 'grazie.html';
+                        // in alternativa: window.location.href = 'index.html#contatti';
+
+                    } catch (err) {
+                        console.error(err);
+                        okEl.classList.add('hidden');
+                        errEl.classList.remove('hidden');
+                    } finally {
+                        submitBtn.disabled = false;
+                    }
+                });
+            </script>
+
+</body>
+
+</html>
